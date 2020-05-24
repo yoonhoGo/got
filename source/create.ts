@@ -193,6 +193,7 @@ const create = (defaults: InstanceDefaults): Got => {
 
 	// Pagination
 	const paginateEach = (async function * <T, R>(url: string | URL, options?: OptionsWithPagination<T, R>) {
+		// @ts-expect-error
 		let normalizedOptions = normalizeArguments(url, options, defaults.options);
 		normalizedOptions.resolveBodyOnly = false;
 
