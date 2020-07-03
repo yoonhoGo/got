@@ -25,6 +25,9 @@ import Request from './core';
 // `type-fest` utilities
 type Except<ObjectType, KeysType extends keyof ObjectType> = Pick<ObjectType, Exclude<keyof ObjectType, KeysType>>;
 type Merge<FirstType, SecondType> = Except<FirstType, Extract<keyof FirstType, keyof SecondType>> & SecondType;
+export type JsonObject = {[Key in string]?: JsonValue};
+export type JsonArray = Array<JsonValue>;
+export type JsonValue = string | number | boolean | null | JsonObject | JsonArray;
 
 export interface InstanceDefaults {
 	options: DefaultOptions;
